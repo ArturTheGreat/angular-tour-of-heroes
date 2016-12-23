@@ -6,6 +6,7 @@ export class Hero {
 }
 
 const HEROES: Hero[] = [
+  {id: 1, name: 'Hellboy'},
   {id: 2, name: 'Magneto'},
   {id: 3, name: 'Wolverine'},
   {id: 4, name: 'Superman'},
