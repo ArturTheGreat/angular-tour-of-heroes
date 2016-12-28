@@ -22,6 +22,11 @@ export class AppComponent implements OnInit {
     this.getHeroes();
   }
 
+  onUnSelect(){
+    console.log(`unselected ${this.selectedHero.name} !`);
+    this.selectedHero = null;
+  }
+
   private getHeroes() {
     this.heroService.getHeroes().then(h => this.heroes = h);
   }

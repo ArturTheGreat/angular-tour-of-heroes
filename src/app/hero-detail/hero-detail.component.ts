@@ -1,4 +1,4 @@
-import {Component, Input, Output} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {Hero} from "../hero";
 
 @Component({
@@ -12,7 +12,11 @@ export class HeroDetailComponent {
   @Input()
   hero: Hero;
 
-  onUnselect():void {
+  @Output()
+  onUnSelect = new EventEmitter();
+
+  unSelect():void {
+    this.onUnSelect.emit();
     this.hero = null;
   }
 }
