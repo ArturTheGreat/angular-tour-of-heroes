@@ -6,7 +6,7 @@ import {HeroService} from "../hero.service";
   selector: 'my-heroes',
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css'],
-  providers: [HeroService]
+  providers: [ HeroService ]
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
@@ -27,7 +27,7 @@ export class HeroesComponent implements OnInit {
   }
 
   private getHeroes() {
-    HeroService.getHeroes().then(h => this.heroes = h);
+    this.heroService.getHeroes().then(h => this.heroes = h);
   }
 
   onSelect(hero: Hero): void {
