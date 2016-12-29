@@ -7,6 +7,10 @@
   </ul>
 </div>
 <div>
-  <my-hero-detail [hero]="selectedHero" (onUnSelect)="onUnSelect()"></my-hero-detail>
+  <!--<my-hero-detail [hero]="selectedHero" (onUnSelect)="onUnSelect()"></my-hero-detail>-->
+  <div *ngIf="selectedHero">
+    <h2>{{selectedHero.name | uppercase}} is my hero!</h2>
+    <button (click)="gotoDetail()">View Details</button>
+  </div>
 </div>
 

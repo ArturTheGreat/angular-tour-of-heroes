@@ -13,11 +13,9 @@ import {HeroService} from "../hero.service";
   providers: [HeroService]
 })
 export class HeroDetailComponent implements OnInit {
+
   @Input()
   hero: Hero;
-
-  @Output()
-  onUnSelect = new EventEmitter();
 
   constructor(private heroService: HeroService,
               private route: ActivatedRoute,
@@ -26,11 +24,6 @@ export class HeroDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.switchMap((params: Params) => this.heroService.getHero(+params['id'])).subscribe(hero => this.hero = hero); //convert 'id' to string by "+" operator because route parameters is always string
-  }
-
-  unSelect(): void {
-    this.onUnSelect.emit();
-    this.hero = null;
   }
 
   goBack(): void {
