@@ -40,4 +40,19 @@ export class HeroService {
       .then(() => hero)
       .catch(this.handleError);
   }
+
+  create(name: string): Promise<Hero> {
+    return this.http.post(this.heroesApiUrl, JSON.stringify({name: name}))
+      .toPromise()
+      .then((res) => res.json().data)
+      .catch(this.handleError)
+  }
+
+  remove(id: number): Promise<void> {
+    const url = `${this.heroesApiUrl}/${id}`;
+    return this.http.delete(url)
+      .toPromise()
+      .then(() => null)
+      .catch(this.handleError);
+  }
 }
